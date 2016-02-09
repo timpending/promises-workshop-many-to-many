@@ -1,0 +1,11 @@
+extends ../layout
+
+block content
+  div.books-container
+    div.well.well-lg 
+      img.thumbnail(src='#{book.cover_url}')
+      h2= book.title 
+      h4= book.author 
+      p= book.description 
+      form(action='/books/#{book.id}/delete' method='post')
+        button.btn.btn-danger(type="submit") Delete #{book.title} ? 

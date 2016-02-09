@@ -1,10 +1,14 @@
 extends layout
 
 block content
-  for book in books 
-    div.well.well-lg 
-      img.thumbnail(src='#{book.cover_url}')
-      h2= book.title 
-      h4= book.author 
-      p= book.description 
+  div.well.well-lg.authors
+    div.home
+      a(href='#')
+        span.glyphicon.glyphicon-user
+    h2 Authors 
+  div.well.well-lg.books 
+    div.home
+      a(href='/books')
+        span.glyphicon.glyphicon-book
+    h2 Books 
     

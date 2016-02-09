@@ -7,9 +7,120 @@ a {
   color: #00B7FF;
 }
 
+
+
+.home {
+  width: 40%;
+  height: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  margin-top: 6em;
+  overflow: hidden;
+}
+
+.home .glyphicon-book, .home .glyphicon-user {
+  margin-top: .5em;
+  font-size: 10em;
+  color: orange;
+}
+
+
+.books, .authors {
+  width: 50%;
+  height: 40em;
+  float: left;
+  text-align: center;
+}
+
+.btn-default {
+  margin-bottom: 2em;
+}
+
+
+.glyphicon:hover {
+  color: red;
+  text-decoration: none;
+}
+.glyphicon-user:hover {
+  color: gray;
+}
+
 .thumbnail {
-  width: 120px;
-  height: 140px;
+  width: 140px;
+  height: 180px;
   float: left;
   margin-right: 15px;
+}
+
+.form-container {
+  width: 50%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.edit {
+  font-size: 2em;
+}
+
+h5 {
+  font-weight: bold;
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  color: gray;
+  text-decoration: none;
+}
+
+.btn-primary, .btn-danger {
+  width: 100%;
+  padding: 5%;
+}
+
+.btn-danger {
+  font-size: 2em;
+}
+
+.glyphicon-pencil {
+  color: #4d4d4d;
+  margin-right: .5em;
+  float: right;
+}
+
+.glyphicon-remove {
+  color: #cc0000;
+  float: right;
+}
+.glyphicon-remove:hover {
+  color: red;
+}
+
+.glyphicon-pencil:hover {
+  color: gray;
+}
+
+.glyphicon-book {
+  color: orange;
+  font-size: 2em;
+}
+.glyphicon-book:hover {
+  color: gray;
+}
+
+.errors {
+  color: red;
+}
+
+.well-lg {
+  overflow: hidden;
+}
+
+.books-container {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
 }
