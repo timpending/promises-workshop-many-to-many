@@ -44,6 +44,7 @@ var url_6 = "https://s3-us-west-2.amazonaws.com/assessment-images/galvanize_read
 
 exports.seed = function(knex, Promise) {
   return Promise.join(
+    knex('books').del(),
     knex('books').insert({title: "Python In A Nutshell", genre: "Python", description: description_1, cover_url: url_1 }),
     knex('books').insert({title: "Think Python", genre: "Python", description: description_2, cover_url: url_2 }),
     knex('books').insert({title: "Learning React Native", genre: "JavaScript", description: description_3, cover_url: url_3 }),
