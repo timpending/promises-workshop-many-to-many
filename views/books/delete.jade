@@ -1,6 +1,7 @@
 extends ../layout
 
 block content
+  include ..partials/sidebar 
   div.books-container
     div.well.well-lg 
       img.thumbnail(src='#{book.cover_url}')

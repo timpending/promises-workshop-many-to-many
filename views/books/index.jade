@@ -1,6 +1,7 @@
 extends ../layout
 
 block content
+  include ../partials/sidebar 
   div.books-container
     a.btn.btn-default(href='/books/new') Add a Book
     for book in books 

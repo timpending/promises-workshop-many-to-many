@@ -4,7 +4,7 @@ var description_1 = "This book offers Python programmers one place to look when 
 "guide makes it easy to look up the most frequently needed information--not just about " +
 "the Python language itself, but also the most frequently used parts of the standard library "+
 "and the most important third-party extensions.";
-var url_1 = "https://s3-us-west-2.amazonaws.com/assessment-images/galvanize_reads/photos/alex_martelli.jpg"
+var url_1 = "https://s3-us-west-2.amazonaws.com/assessment-images/galvanize_reads/photos/python_in_a_nutshell.jpg"
 
 var description_2 = "If you want to learn how to program, working with Python is "+
 "an excellent way to start. This hands-on guide takes you through the language a "+
