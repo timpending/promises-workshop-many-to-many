@@ -13,11 +13,11 @@ exports.seed = function(knex, Promise) {
   return Promise.join(
     knex('authors').del(),
 
-    knex('authors').insert({id: 1, first_name: 'Alex', last_name: 'Martelli', biography: biography, portrait_url: 'https://s3-us-west-2.amazonaws.com/assessment-images/galvanize_reads/photos/alex_martelli.jpg'}),
-    knex('authors').insert({id: 2, first_name: 'Anna Martelli', last_name: 'Ravenscroft', biography: biography, portrait_url: 'https://s3-us-west-2.amazonaws.com/assessment-images/galvanize_reads/photos/anna_ravenscroft.jpg'}),
-    knex('authors').insert({id: 3, first_name: 'Steve', last_name: 'Holden', biography: biography, portrait_url: 'https://s3-us-west-2.amazonaws.com/assessment-images/galvanize_reads/photos/steve_holden.jpg'}),
-    knex('authors').insert({id: 4, first_name: 'Alan B.', last_name: 'Downey', biography: biography, portrait_url: 'https://s3-us-west-2.amazonaws.com/assessment-images/galvanize_reads/photos/allen_downey.jpg'}),
-    knex('authors').insert({id: 5, first_name: 'Bonnie', last_name: 'Eisenman', biography: biography, portrait_url: 'https://s3-us-west-2.amazonaws.com/assessment-images/galvanize_reads/photos/bonnie_eisenman.jpg'}),
-    knex('authors').insert({id: 6, first_name: 'Kyle', last_name: 'Simpson', biography: biography, portrait_url: 'https://s3-us-west-2.amazonaws.com/assessment-images/galvanize_reads/photos/kyle_simpson.jpg'})
+    knex('authors').insert({id: 401, first_name: 'Alex', last_name: 'Martelli', biography: biography, portrait_url: 'https://s3-us-west-2.amazonaws.com/assessment-images/galvanize_reads/photos/alex_martelli.jpg'}),
+    knex('authors').insert({id: 402, first_name: 'Anna Martelli', last_name: 'Ravenscroft', biography: biography, portrait_url: 'https://s3-us-west-2.amazonaws.com/assessment-images/galvanize_reads/photos/anna_ravenscroft.jpg'}),
+    knex('authors').insert({id: 403, first_name: 'Steve', last_name: 'Holden', biography: biography, portrait_url: 'https://s3-us-west-2.amazonaws.com/assessment-images/galvanize_reads/photos/steve_holden.jpg'}),
+    knex('authors').insert({id: 404, first_name: 'Alan B.', last_name: 'Downey', biography: biography, portrait_url: 'https://s3-us-west-2.amazonaws.com/assessment-images/galvanize_reads/photos/allen_downey.jpg'}),
+    knex('authors').insert({id: 405, first_name: 'Bonnie', last_name: 'Eisenman', biography: biography, portrait_url: 'https://s3-us-west-2.amazonaws.com/assessment-images/galvanize_reads/photos/bonnie_eisenman.jpg'}),
+    knex('authors').insert({id: 406, first_name: 'Kyle', last_name: 'Simpson', biography: biography, portrait_url: 'https://s3-us-west-2.amazonaws.com/assessment-images/galvanize_reads/photos/kyle_simpson.jpg'})
   );
 };
