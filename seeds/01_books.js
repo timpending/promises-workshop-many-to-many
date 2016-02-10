@@ -45,12 +45,12 @@ var url_6 = "https://s3-us-west-2.amazonaws.com/assessment-images/galvanize_read
 exports.seed = function(knex, Promise) {
   return Promise.join(
     knex('books').del(),
-    knex('books').insert({title: "Python In A Nutshell", genre: "Python", description: description_1, cover_url: url_1 }),
-    knex('books').insert({title: "Think Python", genre: "Python", description: description_2, cover_url: url_2 }),
-    knex('books').insert({title: "Learning React Native", genre: "JavaScript", description: description_3, cover_url: url_3 }),
-    knex('books').insert({title: "You Don't Know JS: ES6 & Beyond", genre: "JavaScript", description: description_4, cover_url: url_4 }),
-    knex('books').insert({title: "You Don't Know JS: Scope & Closures", genre: "JavaScript", description: description_5, cover_url: url_5 }),
-    knex('books').insert({title: "You Don't Know JS: Async & Performance", genre: "JavaScript", description: description_6, cover_url: url_6 })
+    knex('books').insert({id: 1, title: "Python In A Nutshell", genre: "Python", description: description_1, cover_url: url_1 }),
+    knex('books').insert({id: 2, title: "Think Python", genre: "Python", description: description_2, cover_url: url_2 }),
+    knex('books').insert({id: 3, title: "Learning React Native", genre: "JavaScript", description: description_3, cover_url: url_3 }),
+    knex('books').insert({id: 4, title: "You Don't Know JS: ES6 & Beyond", genre: "JavaScript", description: description_4, cover_url: url_4 }),
+    knex('books').insert({id: 5, title: "You Don't Know JS: Scope & Closures", genre: "JavaScript", description: description_5, cover_url: url_5 }),
+    knex('books').insert({id: 6, title: "You Don't Know JS: Async & Performance", genre: "JavaScript", description: description_6, cover_url: url_6 })
 
   );
 };

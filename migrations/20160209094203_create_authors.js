@@ -2,7 +2,6 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('authors', function (t) {
     t.increments();
-    t.integer('book_id');
     t.string('first_name');
     t.string('last_name');
     t.text('biography');
