@@ -82,4 +82,15 @@ router.post('/:id', function (req, res, next) {
   })
 })
 
+router.get('/:id', function (req, res, next) {
+  Promise.all([
+    Authors().where('id', req.params.id).first(),
+    Authors_Books().where('author_id', req.params.id)
+  ]).then(function (results) {
+    helpers.getAuthorBooks(results[1], Books).then(function (books) {
+      res.render('authors/show', {author: results[0], books: books});
+    })
+  })
+})
+
 module.exports = router;
