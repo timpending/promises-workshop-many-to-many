@@ -28,11 +28,11 @@ block content
       div.form-group#ids
         input(type='hidden' id='book_ids' name='book_ids')
       div.form-group
-        select#book
+        select.form-control#book
           for book in books 
             option(value=book.id)= book.title 
           input.btn.btn-default(type='button' onclick="addBook()" value='Add Book') 
-      button.btn.btn-primary(type="submit") Update Author
+      button.btn.btn-primary.edit(type="submit")  Update #{author.first_name} #{author.last_name} ?
   
    script.
     function addBook(){

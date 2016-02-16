@@ -18,10 +18,23 @@ function Authors_Books() {
 
 
 router.get('/', function(req, res, next) {
-  Authors().select().then(function (authors) {
-    res.render('authors/index', {authors: authors});
+  // get all authors from Authors
+  // using Promise.all map over the array of authors
+  // for each author, get author books
+  // add a property to each author object that is an array of its book objects
+  // pass an array of authors to the view using locals
+  Authors().select().then(function (records) {
+    Promise.all(records.map(function (author) {
+      return helpers.getAuthorBooks(author).then(function (books) {
+        author.books = books;
+        return author;
+      })
+    })).then(function (authors) {
+      res.render('authors/index', {authors: authors});
+    })
   })
 });
+
 router.get('/new', function(req, res, next) {
   Books().select().then(function (books) {
     res.render('authors/new', {books: books});
@@ -39,12 +52,11 @@ router.post('/', function (req, res, next) {
 });
 
 router.get('/:id/delete', function (req, res, next) {
-  Promise.all([
-    Authors().where('id', req.params.id).first(),
-    Authors_Books().where('author_id', req.params.id)
-  ]).then(function (results) {
-    helpers.getAuthorBooks(results[1], Books).then(function (books) {
-      res.render('authors/delete', {author: results[0], books: books});
+  Authors().where('id', req.params.id).first().then(function (author) {
+    helpers.getAuthorBooks(author).then(function (authorBooks) {
+      Books().select().then(function (books) {
+        res.render('authors/delete', {author: author, author_books: authorBooks, books: books });
+      })
     })
   })
 })
@@ -59,13 +71,15 @@ router.post('/:id/delete', function (req, res, next) {
 })
 
 router.get('/:id/edit', function (req, res, next) {
-  Promise.all([
-    Authors().where('id', req.params.id).first(),
-    Authors_Books().where('author_id', req.params.id)
-  ]).then(function (results) {
-    helpers.getAuthorBooks(results[1], Books).then(function (authorBooks) {
+  // find the author in Authors
+  // get all associated records from Authors_Books
+  // using Promise.all map over the array of records
+  // return an array of author books from Books
+  // pass array of author books to the view using locals
+  Authors().where('id', req.params.id).first().then(function (author) {
+    helpers.getAuthorBooks(author).then(function (authorBooks) {
       Books().select().then(function (books) {
-        res.render('authors/edit', {author: results[0], author_books: authorBooks, books: books });
+        res.render('authors/edit', {author: author, author_books: authorBooks, books: books });
       })
     })
   })
@@ -76,19 +90,21 @@ router.post('/:id', function (req, res, next) {
   delete req.body.book_ids;
   Authors().returning('id').where('id', req.params.id).update(req.body).then(function (id) {
     id = id[0];
-    helpers.insertIntoAuthorsBooks(bookIds, Authors_Books, id).then(function () {
+    helpers.insertIntoAuthorsBooks(bookIds, id).then(function () {
     res.redirect('/authors');
     });
   })
 })
 
 router.get('/:id', function (req, res, next) {
-  Promise.all([
-    Authors().where('id', req.params.id).first(),
-    Authors_Books().where('author_id', req.params.id)
-  ]).then(function (results) {
-    helpers.getAuthorBooks(results[1], Books).then(function (books) {
-      res.render('authors/show', {author: results[0], books: books});
+  // find the author in Authors
+  // get all associated records from Authors_Books
+  // using Promise.all map over the array of records
+  // return an array of author books from Books
+  // pass array of author books to the view using locals
+  Authors().where('id', req.params.id).first().then(function (author) {
+    helpers.getAuthorBooks(author).then(function (books) {
+      res.render('authors/show', {author: author, books: books});
     })
   })
 })

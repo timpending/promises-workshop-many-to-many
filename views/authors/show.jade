@@ -11,6 +11,5 @@ block content
       p= author.biography 
       h3 Author Books
       div.well
-        ul
-          for book in books 
-            li= book.title
+        for book in books 
+          p: a(href='/books/#{book.id}') #{book.title}

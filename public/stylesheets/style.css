@@ -11,6 +11,10 @@ a {
   overflow: hidden;
   height: 10em;
 }
+.form-control#book {
+  width: 50%;
+  float: left;
+}
 
 .sidebar {
   width: 15%;

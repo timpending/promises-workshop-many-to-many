@@ -9,8 +9,7 @@ block content
       p= author.biography 
       h3 Author Books
       div.well
-        ul
-          for book in books 
-            li= book.title
+        for book in books 
+          p= book.title
       form(action='/authors/#{author.id}/delete' method='post')
         button.btn.btn-danger(type="submit") Delete #{author.first_name} #{author.last_name} ? 
