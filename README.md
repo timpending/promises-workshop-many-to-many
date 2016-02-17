@@ -19,6 +19,7 @@ __#1 SHOW__
 2. Implement `Promises` using the pseudo code as a guide
 
 __#3 EDIT__
+
 1. In `authors.js`, find the `GET` route for `/:id/edit`
 2. Implement `Promises` using the pseudo code as a guide
 
@@ -36,10 +37,12 @@ __#3 ALL__
 ## Books
 
 __#1 SHOW__
+
 1. In `books.js`, find the `GET` route for `/:id`
 2. Implement `Promises` using the pseudo code as a guide
 
 __#2 EDIT__
+
 1. In `books.js`, find the `GET` route for `/:id/edit`
 2. Implement `Promises` using the pseudo code as a guide
 
