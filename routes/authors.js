@@ -23,16 +23,7 @@ router.get('/', function(req, res, next) {
   // for each author, get author books
   // add a property to each author object that is an array of its book objects
   // pass an array of authors to the view using locals
-  Authors().select().then(function (records) {
-    Promise.all(records.map(function (author) {
-      return helpers.getAuthorBooks(author).then(function (books) {
-        author.books = books;
-        return author;
-      })
-    })).then(function (authors) {
-      res.render('authors/index', {authors: authors});
-    })
-  })
+
 });
 
 router.get('/new', function(req, res, next) {
@@ -76,13 +67,6 @@ router.get('/:id/edit', function (req, res, next) {
   // using Promise.all map over the array of records
   // return an array of author books from Books
   // pass array of author books to the view using locals
-  Authors().where('id', req.params.id).first().then(function (author) {
-    helpers.getAuthorBooks(author).then(function (authorBooks) {
-      Books().select().then(function (books) {
-        res.render('authors/edit', {author: author, author_books: authorBooks, books: books });
-      })
-    })
-  })
 })
 
 router.post('/:id', function (req, res, next) {
@@ -102,11 +86,6 @@ router.get('/:id', function (req, res, next) {
   // using Promise.all map over the array of records
   // return an array of author books from Books
   // pass array of author books to the view using locals
-  Authors().where('id', req.params.id).first().then(function (author) {
-    helpers.getAuthorBooks(author).then(function (books) {
-      res.render('authors/show', {author: author, books: books});
-    })
-  })
 })
 
 module.exports = router;

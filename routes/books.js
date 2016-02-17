@@ -21,16 +21,6 @@ router.get('/', function(req, res, next) {
   // for each book, get book authors
   // add a property to each book object that is an array of its author objects
   // pass an array of authors to the view using locals
-  Books().select().then(function (records) {
-    Promise.all(records.map(function (book) {
-      return helpers.getBookAuthors(book).then(function (authors) {
-        book.authors = authors;
-        return book;
-      })
-    })).then(function (books) {
-      res.render('books/index', {books: books});
-    })
-  })
 });
 
 router.get('/new', function(req, res, next) {
@@ -58,11 +48,6 @@ router.get('/:id/delete', function(req, res, next) {
   // using Promise.all map over the array of records
   // return an array of book authors
   // pass array of book authors to the view using locals
-  Books().where('id', req.params.id).first().then(function (book) {
-    helpers.getBookAuthors(book).then(function (authors) {
-      res.render('books/delete', {book: book, authors: authors});
-    })
-  })
 });
 
 router.post('/:id/delete', function(req, res, next) {
@@ -83,11 +68,6 @@ router.get('/:id', function(req, res, next) {
   // using Promise.all map over the array of records
   // return an array of book authors
   // pass array of book authors to the view using locals
-  Books().where('id', req.params.id).first().then(function (book) {
-    helpers.getBookAuthors(book).then(function (authors) {
-      res.render('books/show', {book: book, authors: authors});
-    })
-  })
 });
 
 router.post('/:id', function(req, res, next) {
