@@ -16,11 +16,7 @@ function Authors() {
 }
 
 router.get('/', function(req, res, next) {
-  // get all books from Books
-  // using Promise.all map over the array of books
-  // for each book, get book authors
-  // add a property to each book object that is an array of its author objects
-  // pass an array of authors to the view using locals
+  // your code here
 });
 
 router.get('/new', function(req, res, next) {
@@ -43,11 +39,8 @@ router.post('/', function (req, res, next) {
 })
 
 router.get('/:id/delete', function(req, res, next) {
-  // find the book in Books
-  // get all associated records from Authors_Books
-  // using Promise.all map over the array of records
-  // return an array of book authors
-  // pass array of book authors to the view using locals
+  // your code here
+  // CHECK YOUR WORK by visiting /books/406/delete
 });
 
 router.post('/:id/delete', function(req, res, next) {
@@ -63,11 +56,8 @@ router.get('/:id/edit', function(req, res, next) {
 });
 
 router.get('/:id', function(req, res, next) {
-  // find the book in Books
-  // get all associated records from Authors_Books
-  // using Promise.all map over the array of records
-  // return an array of book authors
-  // pass array of book authors to the view using locals
+  // your code here
+  // CHECK YOUR WORK by visiting /books/406
 });
 
 router.post('/:id', function(req, res, next) {
