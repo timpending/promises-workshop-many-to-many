@@ -84,6 +84,12 @@ router.post('/:id', function (req, res, next) {
 })
 
 router.get('/:id', function (req, res, next) {
+  helpers.getAuthorBooks(req.params.id).then(function(results){
+    res.render('authors/show', {
+      author: results.author,
+      books: results.books
+    })
+  })
   // find the author in Authors
   // get all of the authors book_ids from Authors_Books
   // get all of the authors books from BOOKs
