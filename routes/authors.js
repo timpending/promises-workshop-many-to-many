@@ -64,12 +64,15 @@ router.post('/:id/delete', function (req, res, next) {
 })
 
 router.get('/:id/edit', function (req, res, next) {
-  // find the author in Authors
-  // get all of the authors book_ids from Authors_Books
-  // get all of the authors books from BOOKs
-  // render the corresponding template
-  // use locals to pass books, author, and author_books to the view
-  // CHECK YOU WORK by visiting /authors/406/edit
+  Books().then(function(books){
+    helpers.getAuthorBooks(req.params.id).then(function(results){
+      res.render('authors/edit', {
+        author: results.author,
+        author_books: results.books,
+        books: books
+      })
+    })
+  })
 })
 
 router.post('/:id', function (req, res, next) {
@@ -90,12 +93,6 @@ router.get('/:id', function (req, res, next) {
       books: results.books
     })
   })
-  // find the author in Authors
-  // get all of the authors book_ids from Authors_Books
-  // get all of the authors books from BOOKs
-  // render the corresponding template
-  // use locals to pass books and author to the view
-  // CHECK YOU WORK by visiting /authors/406
 })
 
 module.exports = router;
