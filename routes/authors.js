@@ -18,15 +18,21 @@ function Authors_Books() {
 
 
 router.get('/', function(req, res, next) {
-  // get all authors from Authors
-  // THEN for each author, go get all of their book ids from Authors_Books
-  // THEN go get all that author's books
-  // AND add the array of books to the author object as 'books'
-  // render the appropriate template
-  // pass an array of authors to the view using locals
-  // your author objects should look like this:
-    // EXAMPLE: { first_name: 'Laura', last_name: 'Lou', bio: 'her bio', books: [ this should be all of her book objects ]}
+  Authors().then(function (authors) {
+    Promise.all(authors.map(function (author) {
+      return Authors_Books().where('author_id', author.id).pluck('book_id').then(function (bookIds) {
+        return Books().whereIn('id', bookIds).then(function (books) {
+          author.books = books;
+          return author
+        })
+      })
+    })).then(function (results) {
+      res.render('authors/index.jade', {authors:authors})
+    })
+  })
 });
+
+
 
 router.get('/new', function(req, res, next) {
   Books().select().then(function (books) {
