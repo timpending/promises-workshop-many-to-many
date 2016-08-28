@@ -39,6 +39,12 @@ router.post('/', function (req, res, next) {
 })
 
 router.get('/:id/delete', function(req, res, next) {
+  helpers.getBookAuthors(req.params.id).then(function(obj){
+    res.render('books/show', {
+      book: obj.book,
+      authors: obj.authors
+    })
+  })
   // your code here
   // CHECK YOUR WORK by visiting /books/406/delete
 });
@@ -57,15 +63,11 @@ router.get('/:id/edit', function(req, res, next) {
 
 router.get('/:id', function(req, res, next) {
   helpers.getBookAuthors(req.params.id).then(function(obj){
-    console.log(obj);
     res.render('books/show', {
       book: obj.book,
       authors: obj.authors
     })
   })
-
-  // your code here
-  // CHECK YOUR WORK by visiting /books/406
 });
 
 router.post('/:id', function(req, res, next) {
